@@ -1,0 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class movementscript : MonoBehaviour
+{
+
+    public GameObject mainCharacter;
+    public CharacterController controller;
+    public float speed = 6f;
+    public float sprintSpeed = 16f;
+   
+
+    void Update()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        
+        Vector3 direction = new Vector3(-vertical, 0f, horizontal).normalized;
+
+        if (direction.magnitude >= 0.1f)
+        {
+            
+            mainCharacter.GetComponent<Animator>().Play("Female Sword Walk");
+            
+            controller.Move(( direction * speed * Time.deltaTime ));
+            
+        }
+        
+        else if (direction.magnitude >= 0.1f && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            controller.Move(( direction * sprintSpeed * Time.deltaTime ));
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            mainCharacter.GetComponent<Animator>().Play("Female Sword Attack 1");
+        }
+
+        
+        
+
+        
+        
+        
+
+
+
+    }
+}
