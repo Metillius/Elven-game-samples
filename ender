@@ -1,0 +1,13 @@
+
+public class ender : MonoBehaviour
+{
+    public void EndGame()
+    {
+        Debug.Log("Game Over");
+        
+        UnityEditor.EditorApplication.isPlaying = false;
+
+
+        Application.Quit();
+    }
+}
