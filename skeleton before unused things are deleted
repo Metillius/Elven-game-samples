@@ -15,7 +15,7 @@ public class SkeletonInfo : MonoBehaviour
 
     public float distance;
 
-    public static int enemyCount = 10;
+    public static int enemyCount = 19;
     
 
     
@@ -110,15 +110,6 @@ public class SkeletonInfo : MonoBehaviour
             TurnToTarget(); 
         }
         
-        if (enemyCount <= 0)
-        {
-            Debug.Log("you win"+enemyCount);
-
-            FindObjectOfType<ender>().EndGame();
-
-
-        }
-
 
     }
 
